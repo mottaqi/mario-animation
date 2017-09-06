@@ -1,0 +1,90 @@
+/*// BASE STYLES //*/
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.sky{
+  height: 40%;
+  background: skyblue;
+}
+
+.grass{
+  height: 30%;
+  background: seagreen;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/*// ELEMENTS TO ANIMATE //*/
+.mario {
+	position: absolute;
+	top: -60px;
+	left: 0;
+  animation: animate-mario infinite backwards 5s ease-in, jump  0.3s 1.25s ease;
+}
+.police{
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  animation-name: animate-mario;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+.cloud{position: absolute;}
+
+.cloud:nth-child(1) {
+	width: 180px;
+	top: 100px;
+	opacity: 0.6;
+  animation: animate-cloud infinite reverse 50s linear;
+}
+.cloud:nth-child(2){
+  width: 250px;
+  top: 0px;
+  animation: animate-cloud infinite reverse 40s linear;
+}
+
+
+
+/*// KEYFRAMES //*/
+@keyframes animate-mario{
+  from{transform: translateX(-200px);}
+  to{transform: translateX(1400px);}
+}
+@keyframes animate-cloud{
+  from{left: 250px;}
+  to{left: 100%;}
+}
+@keyframes jump{
+  0%{top: -40px;}
+  50%{top: -100px;}
+  100%{top: -40px;}
+}
